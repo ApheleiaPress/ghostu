@@ -60,13 +60,17 @@ config = {
               }
         },
         database: {
-            client: 'pg',
+//            client: 'pg',
+//            connection: {
+//                host: process.env.POSTGRES_HOST,
+//                user: process.env.POSTGRES_USER,
+//                password: process.env.POSTGRES_PASSWORD,
+//                database: process.env.POSTGRES_DATABASE,
+//                port: '5432'
+//            },
+            client: 'sqlite3',
             connection: {
-                host: process.env.POSTGRES_HOST,
-                user: process.env.POSTGRES_USER,
-                password: process.env.POSTGRES_PASSWORD,
-                database: process.env.POSTGRES_DATABASE,
-                port: '5432'
+                filename: path.join(__dirname, '/content/data/ghost-dev.db')
             },
             debug: false
         },
