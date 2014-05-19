@@ -25,7 +25,7 @@ config = {
 
     // ### Production
     production: {
-        url: 'http://ghost.risto.io',
+        url: 'http://blog.risto.io',
         mail: {},
         database: {
             client: 'pg',
