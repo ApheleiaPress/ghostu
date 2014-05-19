@@ -1,6 +1,4 @@
 // # Ghost Configuration
-// Setup your Ghost install for various environments
-// Documentation can be found at http://docs.ghost.org/usage/configuration/
 
 var path = require('path'),
     config;
@@ -8,24 +6,7 @@ var path = require('path'),
 config = {
     // ### Development **(default)**
     development: {
-        // The url to use when providing links to the site, E.g. in RSS and email.
-        url: 'http://my-ghost-blog.com',
-
-//         Example mail config
-//         Visit http://docs.ghost.org/mail for instructions
-//         ```
-//          mail: {
-//              transport: 'SMTP',
-//              options: {
-//                  service: 'Mailgun',
-//                  auth: {
-//                      user: '', // mailgun username
-//                      pass: ''  // mailgun password
-//                  }
-//              }
-//          },
-//         ```
-
+        url: 'http://ghost.blog',
         database: {
             client: 'sqlite3',
             connection: {
@@ -34,9 +15,7 @@ config = {
             debug: false
         },
         server: {
-            // Host to be passed to node's `net.Server#listen()`
             host: '127.0.0.1',
-            // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
             port: '2368'
         },
         paths: {
@@ -45,39 +24,22 @@ config = {
     },
 
     // ### Production
-    // When running Ghost in the wild, use the production environment
-    // Configure your URL and mail settings here
     production: {
-        url: 'http://ghosto.herokuapp.com',
-        mail: {
-            transport: 'SMTP',
-              options: {
-                  service: 'risto.io',
-                  auth: {
-                      user: process.env.MAIL_USER,
-                      pass: process.env.MAIL_PASSWORD
-                  }
-              }
-        },
+        url: 'http://blog.risto.io',
+        mail: {},
         database: {
-//            client: 'pg',
-//            connection: {
-//                host: process.env.POSTGRES_HOST,
-//                user: process.env.POSTGRES_USER,
-//                password: process.env.POSTGRES_PASSWORD,
-//                database: process.env.POSTGRES_DATABASE,
-//                port: '5432'
-//            },
-            client: 'sqlite3',
+            client: 'pg',
             connection: {
-                filename: path.join(__dirname, '/content/data/ghost-dev.db')
+                host: process.env.POSTGRES_HOST,
+                user: process.env.POSTGRES_USER,
+                password: process.env.POSTGRES_PASSWORD,
+                database: process.env.POSTGRES_DATABASE,
+                port: '5432'
             },
             debug: false
         },
         server: {
-            // Host to be passed to node's `net.Server#listen()`
             host: '0.0.0.0',
-            // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
             port: process.env.PORT
         },
         fileStorage: false
