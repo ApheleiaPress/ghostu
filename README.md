@@ -10,6 +10,7 @@ Change the production url variable, and then export the following variables to y
 * heroku config:set POSTGRES_HOST=xxxxxxxx 
 * heroku config:set POSTGRES_USER=xxxxxxxx 
 * heroku config:set POSTGRES_PASSWORD=xxxxxxxx
+* heroku config:set PRODUCTION_URL=xxxxxxxx
 
 (Also, set up a mail service if you want one.)
 
