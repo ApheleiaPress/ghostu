@@ -26,7 +26,16 @@ config = {
     // ### Production
     production: {
         url: process.env.PRODUCTION_URL,
-        mail: {},
+        mail: {
+            transport: 'SMTP',
+            options: {
+                service: 'Mailgun',
+                auth: {
+                    user: process.env.MAILGUN_USER,
+                    pass: process.env.MAILGUN_PASS
+                }
+            }
+        },
         database: {
             client: 'pg',
             connection: {
